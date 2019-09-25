@@ -84,7 +84,7 @@ class ChangelogOptionParser
           options.dry_run = value
         end
 
-        opts.on('-u', '--username [string]', 'Overwrite the author of the change') do |value|
+        opts.on('-u', '--username [string]', String, 'Overwrite the author of the change') do |value|
           options.author = value 
         end
 
@@ -205,7 +205,7 @@ class ChangelogEntry
   end
 
   def assert_feature_branch!
-    return unless branch_name == 'master'
+    return unless branch_name == 'master' and not options.force
 
     fail_with "Create a branch first!"
   end
@@ -263,8 +263,6 @@ class ChangelogEntry
   end
 
   def issue_nr_from_branch
-    print branch_name.scan(/\/?(\d+)-/)
-
     found = branch_name.scan(/\/?(\d+)-/).first
     found.first unless found.nil?
   end
