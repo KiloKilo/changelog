@@ -16,6 +16,7 @@ Options = Struct.new(
   :dry_run,
   :force,
   :merge_request,
+  :issue,
   :title,
   :type
 )
@@ -75,12 +76,16 @@ class ChangelogOptionParser
           options.merge_request = value
         end
 
+        opts.on('-i', '--issue [integer]', Integer, 'Issue ID') do |value|
+          options.issue = value
+        end
+
         opts.on('-n', '--dry-run', "Don't actually write anything, just print") do |value|
           options.dry_run = value
         end
 
-        opts.on('-u', '--git-username', 'Use Git user.name configuration as the author') do |value|
-          options.author = git_user_name if value
+        opts.on('-u', '--username [string]', 'Overwrite the author of the change') do |value|
+          options.author = value 
         end
 
         opts.on('-t', '--type [string]', String, "The category of the change, valid options are: #{TYPES.map(&:name).join(', ')}") do |value|
@@ -133,9 +138,6 @@ class ChangelogOptionParser
       end
     end
 
-    def git_user_name
-      capture_stdout(%w[git config user.name]).strip
-    end
   end
 end
 
@@ -175,8 +177,9 @@ class ChangelogEntry
   def contents
     yaml_content = YAML.dump(
       'title'         => title,
+      'issue'         => issue,
       'merge_request' => options.merge_request,
-      'author'        => options.author,
+      'author'        => author,
       'type'          => options.type
     )
     remove_trailing_whitespace(yaml_content)
@@ -235,8 +238,35 @@ class ChangelogEntry
     end
   end
 
+  def author
+    if options.author.nil? or options.author.emtpy?
+      git_user_name
+    else
+      options.author
+    end
+  end
+
+  def issue
+    if options.issue.nil?
+      issue_nr_from_branch
+    else 
+      options.issue
+    end
+  end
+
+  def git_user_name
+    capture_stdout(%w[git config user.name]).strip
+  end
+
   def last_commit_subject
     capture_stdout(%w[git log --format=%s -1]).strip
+  end
+
+  def issue_nr_from_branch
+    print branch_name.scan(/\/?(\d+)-/)
+
+    found = branch_name.scan(/\/?(\d+)-/).first
+    found.first unless found.nil?
   end
 
   def file_path
