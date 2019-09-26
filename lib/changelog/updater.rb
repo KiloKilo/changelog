@@ -14,7 +14,8 @@ module Changelog
 
             versions_found = false
 
-            contents = File.read(@path).lines
+            contents = File.read(@path).lines if File.exist?(@path)
+            contents ||= []
             contents.each_with_index do |line, index|
             
                 if line =~ /\A## v?(\d+\.\d+\.\d+)/

@@ -1,11 +1,4 @@
-#!/usr/bin/env ruby
-#
-# Generate a changelog.md from the entry files
-# https://gitlab.com/gitlab-org/release-tools/tree/1ccd1159a62b75d7e011fcff1ba374286050161a/lib/release_tools/changelog
-
-require 'optparse'
 require 'yaml'
-require 'fileutils'
 require 'changelog/markdown_generator'
 require 'changelog/updater'
 require 'colorize'
