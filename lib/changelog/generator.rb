@@ -2,31 +2,15 @@ require 'optparse'
 require 'yaml'
 require 'fileutils'
 require 'colorize'
+require 'changelog/helper'
 
 
 INVALID_TYPE = -1
 
-module GeneratorHelper
-  Abort = Class.new(StandardError)
-  Done = Class.new(StandardError)
-
-  MAX_FILENAME_LENGTH = 99 # GNU tar has a 99 character limit
-
-  def capture_stdout(cmd)
-    output = IO.popen(cmd, &:read)
-    fail_with "command failed: #{cmd.join(' ')}" unless $?.success?
-    output
-  end
-
-  def fail_with(message)
-    raise Abort, "#{"error".red} #{message}"
-  end
-end
-
 module Changelog
 
   class Generator
-    include GeneratorHelper
+    include Changelog::Helper
 
     def initialize(title, type, author, issue, merge_request, amend, force = false)
       @entry = Changelog::Entry.new(
