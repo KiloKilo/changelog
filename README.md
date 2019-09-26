@@ -22,27 +22,27 @@ gem install changelog
 Create a new entry by running
 
 ```shell
-changelog 
+bundle exec changelog 
 
-#this is an alias for `changelog gen`
+#this is an alias for `bundle exec changelog gen`
 ```
 
 this will create a new file in the `changelogs/unreleased/` folder.
 
-Run `changelog help gen` to see all available options
+Run `bundle exec changelog help gen` to see all available options
 
 ### Bundling
 
 Bundle all the unreleased entries by running
 
 ```shell
-# changelog bundle <VERSION>
-changelog bundle 2.3.1
+# bundle exec changelog bundle <VERSION>
+bundle exec changelog bundle 2.3.1
 ```
 
 this will create or update the `CHANGELOG.md`
 
-Run `changelog help bundle` to see all available options
+Run `bundle exec changelog help bundle` to see all available options
 
 ## Development
 
