@@ -50,7 +50,7 @@ module Changelog
 
 			@unreleased_entries = []
 
-			unreleased_paths do |fname|			  
+			unreleased_paths.each do |fname|		
 				@unreleased_entries << Entry.from_yml(fname)
 			end
 

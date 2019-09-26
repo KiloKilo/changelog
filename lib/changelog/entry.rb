@@ -52,7 +52,7 @@ module Changelog
 		end
 
 		def valid?
-			!@title.nil? && !@issue.nil?
+			!@title.nil?
 		end
 
 		def to_yml
