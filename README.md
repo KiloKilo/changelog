@@ -12,7 +12,7 @@ This tool was inspired by the article '[How we solved GitLab's CHANGELOG conflic
 Install _changelog_ using
 
 ```shell
-gem install changelog
+gem install changelog-madness
 ```
 
 ## Usage

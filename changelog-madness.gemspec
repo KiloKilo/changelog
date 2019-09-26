@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "changelog/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "changelog"
+  spec.name          = "changelog-madness"
   spec.version       = Changelog::VERSION
   spec.authors       = ["Alexandre Joly"]
   spec.email         = ["alexandre.joly@kilokilo.ch"]
