@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 require 'changelog/cli'
 require 'changelog/helper'
-require 'colorize'
 
 begin
     Changelog::CLI.start
@@ -10,9 +9,6 @@ rescue Changelog::Helper::Abort => ex
     exit 1
 rescue Changelog::Helper::Done
     exit
-rescue Interrupt
-    $stderr.puts "\nAbort mission! I repeat! Abort mission!".red
-    exit 1
 end
 
 
