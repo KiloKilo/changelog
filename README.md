@@ -5,7 +5,7 @@ _Stop the changelog merge conflict madness!_
 This tool helps you maintaining a CHANGELOG by creating one file per entry and
 bundling them together before you release a new version of your application.
 
-This tool was inspired by the article [How we solved GitLab's CHANGELOG conflict crisis]https://about.gitlab.com/2018/07/03/(solving-gitlabs-changelog-conflict-crisis/) from Gitlab. And yeah well I used some of their code too... At this point, I want to say thank you to the Gitlab team for the great work you guys are doing. 👏👏👏
+This tool was inspired by the article '[How we solved GitLab's CHANGELOG conflict crisis](https://about.gitlab.com/2018/07/03/solving-gitlabs-changelog-conflict-crisis/)' from Gitlab. And yeah well I used some of their code too... At this point, I want to say thank you to the Gitlab team for the great work you guys are doing. 👏👏👏
 
 ## Installation
 
