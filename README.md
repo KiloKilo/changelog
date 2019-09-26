@@ -1,28 +1,48 @@
 # Changelog
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/changelog`. To experiment with that code, run `bin/console` for an interactive prompt.
+_Stop the changelog merge conflict madness!_
 
-TODO: Delete this and the text above, and describe your gem
+This tool helps you maintaining a CHANGELOG by creating one file per entry and
+bundling them together before you release a new version of your application.
+
+This tool was inspired by the article [How we solved GitLab's CHANGELOG conflict crisis]https://about.gitlab.com/2018/07/03/(solving-gitlabs-changelog-conflict-crisis/) from Gitlab. And yeah well I used some of their code too... At this point, I want to say thank you to the Gitlab team for the great work you guys are doing. 👏👏👏
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Install _changelog_ using
 
-```ruby
-gem 'changelog'
+```shell
+gem install changelog
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install changelog
 
 ## Usage
 
-TODO: Write usage instructions here
+### New Entry
+
+Create a new entry by running
+
+```shell
+changelog 
+
+#this is an alias for `changelog gen`
+```
+
+this will create a new file in the `changelogs/unreleased/` folder.
+
+Run `changelog help gen` to see all available options
+
+### Bundling
+
+Bundle all the unreleased entries by running
+
+```shell
+# changelog bundle <VERSION>
+changelog bundle 2.3.1
+```
+
+this will create or update the `CHANGELOG.md`
+
+Run `changelog help bundle` to see all available options
 
 ## Development
 
@@ -32,7 +52,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/changelog. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kilokilo/changelog. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +60,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Changelog project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/changelog/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Changelog project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/kilokilo/changelog/blob/master/CODE_OF_CONDUCT.md).

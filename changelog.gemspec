@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
   # add dependencies
   spec.add_dependency 'thor', '~> 0'
   spec.add_dependency 'colorize', '~> 0.8'
+  spec.add_dependency 'activesupport', '~> 4.2'
 
   # add dependencies specially for development needs
   spec.add_development_dependency "bundler", "~> 1.16"

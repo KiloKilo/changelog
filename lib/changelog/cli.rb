@@ -38,9 +38,6 @@ module Changelog
             bundler.execute
         end
 
-        
-
-
         private
 
         def read_type

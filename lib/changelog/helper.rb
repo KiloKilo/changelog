@@ -1,4 +1,5 @@
 require 'changelog'
+require 'colorize'
 
 module Changelog
     module Helper
@@ -14,7 +15,7 @@ module Changelog
         end
 
         def fail_with(message)
-            raise Abort, "\e[31merror\e[0m #{message}"
+            raise Abort, "#{'error'.red} #{message}"
         end
     end
 end
