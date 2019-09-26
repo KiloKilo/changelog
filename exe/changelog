@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
 require 'changelog/cli'
 
-
-puts "hi"
 Changelog::CLI.start
