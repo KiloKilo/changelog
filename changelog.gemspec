@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Stop the changelog merge conflict madness}
   spec.description   = %q{A tool to create changelog entries and bind them together}
-  spec.homepage      = "https://github.com/kilokilo/changelog-generator"
+  spec.homepage      = "https://github.com/KiloKilo/changelog"
   spec.license       = "MIT"
 
   
