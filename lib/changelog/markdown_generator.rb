@@ -18,12 +18,10 @@ module Changelog
             markdown.puts
 
             if entries.empty?
-                markdown.puts "- No changes.\n\n"
+                markdown.puts "-   No changes.\n\n"
             else
                 markdown.puts formatted_entries
             end
-
-            markdown.puts
 
             markdown.string
         end
@@ -67,7 +65,7 @@ module Changelog
                 result << "### #{type.capitalize} (#{changes})\n\n"
 
                 # Add entries to the group.
-                grouped_entries.each { |entry| result << "-  #{entry}\n" }
+                grouped_entries.each { |entry| result << "-   #{entry}\n" }
 
                 result << "\n"
             end
